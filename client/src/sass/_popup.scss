@@ -1,0 +1,333 @@
+.popup {
+  display: none;
+  position: fixed;
+  max-width: 256em;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  align-items: center;
+  justify-content: center;
+}
+
+// Popup team && services
+.popup {
+  &__content {
+    background-color: $color-grey-light-1;
+    width: 70%;
+    height: auto;
+    position: relative;
+    display: grid;
+    animation: zoom 0.5s;
+    overflow: auto;
+    z-index: 6;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 6rem 1fr;
+
+    //1200px
+    @media only screen and (max-width: $bp-largest) {
+      width: 80%;
+    }
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 6rem 1fr 1fr;
+      height: 90vh;
+    }
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      border-radius: 1rem;
+    }
+
+    //700px
+    @media only screen and (max-width: $bp-largest) {
+      width: 90%;
+    }
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      width: 95%;
+      height: inherit;
+    }
+  }
+
+  &__sticky {
+    position: sticky;
+    top: 0;
+    right: 0;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    background-color: $color-grey-light-1;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.4rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  }
+
+  &__text {
+    grid-column: 2 / 3;
+    font-size: 1.7rem;
+    line-height: 1.6;
+    color: inherit;
+    margin-bottom: 6rem;
+    grid-row: 2 / 3;
+    margin-right: 6rem;
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+      margin-right: 0;
+      padding: 0 4vw;
+    }
+  }
+
+  &__item {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    margin-bottom: 6rem;
+    margin-left: 6rem;
+    margin-right: 2rem;
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 6rem 1fr 1fr;
+      width: 80%;
+      padding-bottom: 3rem;
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-right: 0;
+      justify-self: center;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    font-size: 4rem;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+// Popup contact
+.popup {
+  &__contact {
+    background-image: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0.8) 47%,
+        transparent 70%
+      ),
+      url(../img/background.jpg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 70%;
+    height: auto;
+
+    position: relative;
+    animation: zoom 0.5s;
+    overflow: auto;
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      width: 90%;
+    }
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      border-radius: 1rem;
+      height: inherit;
+    }
+
+    //700px
+    @media only screen and (max-width: $bp-largest) {
+      background-image: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0.8) 50%,
+          transparent 100%
+        ),
+        url(../img/small_background.jpg);
+      width: 96%;
+      height: 96vh;
+    }
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      background-image: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0.8) 100%,
+          transparent 100%
+        ),
+        url(../img/smallest_background.jpg);
+      height: inherit;
+    }
+  }
+
+  &__top {
+    height: 6rem;
+    background-color: rgba(255, 255, 254, 0.8392156862745098);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 7;
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      border-radius: 1rem;
+    }
+  }
+
+  &__wrapper {
+    padding: 6rem 5rem;
+
+    //700px
+    @media only screen and (max-width: $bp-largest) {
+      padding: 5rem 4rem;
+    }
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 4rem 2rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    font-size: 1.6rem;
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      width: 50%;
+    }
+
+    //700px
+    @media only screen and (max-width: $bp-largest) {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    font-size: inherit;
+    background-color: rgba(#fff, 0.8);
+    border-radius: 0.4rem;
+    border: none;
+    padding: 1.5rem 2rem;
+    border-bottom: 0.3rem solid transparent;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    color: inherit;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus:invalid {
+      border-bottom: 0.3rem solid $color-primary;
+    }
+  }
+
+  &__span {
+    color: red;
+    font-size: 1.6rem;
+  }
+
+  label {
+    margin-top: 3rem;
+  }
+
+  textarea {
+    resize: none;
+    height: 12rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn {
+    margin-top: 1rem;
+    align-self: flex-start;
+  }
+}
+
+// Popup slider
+.popup__imageSlider {
+  animation: fade 2s;
+  width: 70%;
+  height: auto;
+  overflow: hidden;
+  margin: 2rem;
+  position: relative;
+
+  //1200px
+  @media only screen and (max-width: $bp-largest) {
+    width: 80%;
+  }
+
+  //900px
+  @media only screen and (max-width: $bp-medium) {
+    width: 90%;
+  }
+
+  //700px
+  @media only screen and (max-width: $bp-small) {
+    width: 95%;
+  }
+}
+
+.popup {
+  &__leftArrow {
+    left: 1rem;
+  }
+
+  &__rightArrow {
+    right: 1rem;
+  }
+
+  &__leftArrow,
+  &__rightArrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: #fff;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: $font-primary;
+    padding: 1rem;
+    margin-top: -5rem;
+
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 4rem;
+    }
+
+    //700px
+    @media only screen and (max-width: $bp-small) {
+      font-size: 3rem;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+}

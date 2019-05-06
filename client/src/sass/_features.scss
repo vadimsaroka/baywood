@@ -1,0 +1,146 @@
+// Features
+.features {
+  grid-area: features;
+
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, max-content);
+
+  //700px
+  @media only screen and (max-width: $bp-small) {
+    margin: 12rem 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, max-content);
+  }
+}
+
+.feature {
+  &--accounting {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  &--maintenance {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  &--marketing {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  &--bookkeeping {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  //700px
+  @media only screen and (max-width: $bp-small) {
+    &--accounting {
+      grid-row: 2 / 3;
+      grid-column: 1 / 2;
+    }
+
+    &--maintenance {
+      grid-row: 3 / 4;
+      grid-column: 1 / 2;
+    }
+
+    &--marketing {
+      grid-row: 4 / 5;
+      grid-column: 1 / 2;
+    }
+
+    &--bookkeeping {
+      grid-row: 5 / 6;
+      grid-column: 1 / 2;
+    }
+  }
+
+  margin: 3rem;
+
+  //450px
+  @media only screen and (max-width: $bp-smallest) {
+    margin: 1rem;
+  }
+
+  &__heading {
+    grid-column: 1 / 4;
+    text-align: center;
+    color: $color-grey-dark-2;
+    font-size: 3rem;
+    padding-bottom: 3rem;
+    font-weight: 400;
+    font-family: $font-display;
+
+    //700px
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      padding: 0 2vw;
+    }
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    & span {
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      color: $color-primary-dark;
+      & span {
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 1.5rem;
+    align-self: start;
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      grid-column-gap: 1.5rem;
+      grid-row-gap: 0;
+      padding: 1rem 1.5rem;
+    }
+
+    &__heading {
+      padding-bottom: 6rem;
+
+      //700px
+      @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        padding-bottom: 3rem;
+      }
+    }
+
+    &__icon {
+      display: block;
+      width: 5rem;
+      height: 5rem;
+      fill: $color-primary;
+      grid-row: 1 / 3;
+      transform: translateY(-1rem);
+    }
+  }
+}

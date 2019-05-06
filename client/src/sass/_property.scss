@@ -1,0 +1,104 @@
+// Property
+.properties {
+  grid-area: properties;
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 10;
+  margin: 15rem 0;
+
+  &__heading {
+    text-align: center;
+    color: $color-grey-dark-2;
+    font-size: 3rem;
+    padding-bottom: 3rem;
+    font-weight: 400;
+    font-family: $font-display;
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      padding-bottom: 0;
+    }
+  }
+
+  //1000px
+  @media only screen and (max-width: $bp-large) {
+    margin: 12rem 0;
+  }
+
+  //450px
+  @media only screen and (max-width: $bp-smallest) {
+    margin: 6rem 0;
+  }
+}
+
+.property {
+  width: 30rem;
+  margin: 3rem;
+  background-color: $color-grey-light-1;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__name {
+    z-index: 2;
+    width: 80%;
+    font-family: $font-display;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: $color-secondary;
+    color: #fff;
+    font-weight: 400;
+    margin: 0 auto;
+    transform: translateY(-50%);
+  }
+
+  &__address,
+  &__description {
+    margin-left: 2rem;
+  }
+
+  &__address svg,
+  &__description svg {
+    display: none;
+  }
+
+  @supports (fill: #f9f7f6) {
+    &__address,
+    &__description {
+      font-size: 1.5rem;
+
+      display: flex;
+      align-items: flex-start;
+
+      svg {
+        display: block;
+        fill: $color-primary;
+        height: 2rem;
+        width: 2rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &__description {
+    margin-bottom: 4rem;
+  }
+}
