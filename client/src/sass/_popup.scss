@@ -140,7 +140,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    width: 70%;
+    width: 80%;
     height: auto;
 
     position: relative;
@@ -159,7 +159,7 @@
     }
 
     //700px
-    @media only screen and (max-width: $bp-largest) {
+    @media only screen and (max-width: $bp-small) {
       background-image: linear-gradient(
           100deg,
           rgba(255, 255, 255, 0.8) 50%,
@@ -167,7 +167,7 @@
         ),
         url(../img/small_background.jpg);
       width: 96%;
-      height: 96vh;
+      // height: 96vh;
     }
 
     //450px
@@ -198,10 +198,20 @@
 
   &__wrapper {
     padding: 6rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading heading"
+      "form map";
 
-    //700px
-    @media only screen and (max-width: $bp-largest) {
+    //900px
+    @media only screen and (max-width: $bp-medium) {
       padding: 5rem 4rem;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "map"
+        "form";
     }
 
     //450px
@@ -210,20 +220,44 @@
     }
   }
 
+  &__heading {
+    grid-area: heading;
+  }
+
+  &__map {
+    grid-area: map;
+    padding-top: 5.5rem;
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      height: 70rem;
+      padding-top: 3rem;
+    }
+
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      height: 50rem;
+      padding-top: 2rem;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 90%;
     font-size: 1.6rem;
 
-    //1000px
-    @media only screen and (max-width: $bp-large) {
-      width: 50%;
+    grid-area: form;
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      margin-top: -11rem;
+      width: 100%;
     }
 
-    //700px
-    @media only screen and (max-width: $bp-largest) {
-      width: 100%;
+    //450px
+    @media only screen and (max-width: $bp-smallest) {
+      margin-top: -8rem;
     }
   }
 
@@ -314,7 +348,6 @@
     font-family: $font-primary;
     padding: 1rem;
     margin-top: -5rem;
-
 
     //900px
     @media only screen and (max-width: $bp-medium) {

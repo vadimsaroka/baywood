@@ -57,10 +57,10 @@ export const servicesDescription = {
 export let servicesPhotos = () => {
   if (screen.width < 900) {
     servicesPhotos = {
-      "accounting": small_accounting,
-      "maintenance": small_maintenance,
-      "marketing": small_marketing,
-      "bookkeeping": small_bookkeeping
+      accounting: small_accounting,
+      maintenance: small_maintenance,
+      marketing: small_marketing,
+      bookkeeping: small_bookkeeping
     };
   } else {
     servicesPhotos = {
@@ -173,7 +173,6 @@ export let galArr = () => {
       "gal-13": gal13,
       "gal-14": gal14
     };
-
   }
 };
 galArr();
@@ -187,7 +186,7 @@ export const contactForm = `
     <span class="popup__close">×</span>
   </div>
     <div class="popup__wrapper">
-      <h3 class="heading-3">Contact Us for more information</h3>
+      <h3 class="heading-3 popup__heading">Contact Us for more information</h3>
       <form class="popup__form" method="post" action="https://baywood.herokuapp.com/api/send">
         <label for="name">Name<span class="popup__span">*</span></label>
         <input class="popup__input" type="text" id="name" placeholder="Please provide your full name" name="name" required pattern="[A-Za-z ]{3,25}">
@@ -202,8 +201,15 @@ export const contactForm = `
         <textarea class="popup__input" id="comment" name="message" placeholder="Type here..."></textarea>
         
         <p><span class="popup__span">*</span> Indicates required field</p>
-        <input type="submit" class="btn" value="Submit">
+        <input type="submit" class="btn" value="Contact Us">
       </form>
+      <div class="popup__map">
+      <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" 
+        src="https://maps.google.com/maps?q=330%20Primrose%20Road%2C%20Suite%20606%20-%20Burlingame%2C%20CA%2094010&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com"></a></div><style>.mapouter{position:relative;text-align:right;height:82%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div>
+      </div>
     </div>
 </div>
 `;
+
+
+// lazy loading
