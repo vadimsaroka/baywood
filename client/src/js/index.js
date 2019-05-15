@@ -8,7 +8,7 @@ import {
 
 import "./smoothScroll";
 import "../sass/main.scss";
-import { clear, closeBtn, renderImages, renderImage } from "./functions";
+import { clear, closeBtn, renderImages, renderImage, onRecaptchaLoad } from "./functions";
 import "./sideBar";
 import "./lazyLoading";
 
@@ -27,7 +27,7 @@ teamList.forEach(function(e) {
 // Popup services
 services.forEach(e => {
   e.addEventListener("click", () => {
-    renderImages(servicesPhotos[e.id], servicesDescription[e.id])
+    renderImages(servicesPhotos[e.id], servicesDescription[e.id]);
   });
 });
 
@@ -52,18 +52,7 @@ contactBtn.forEach(e => {
   });
 });
 
-
-//image slider
-// const imageSlider = () => {
-//   imageArr.forEach(e => {
-//     e.addEventListener("click", () => {
-//       renderImage(e.id);
-//     });
-//   });
-// };
-
-// imageSlider();
-
+//Image slider
 (function imageSlider() {
   imageArr.forEach(e => {
     e.addEventListener("click", () => {
@@ -71,3 +60,6 @@ contactBtn.forEach(e => {
     });
   });
 })();
+
+//recaptcha
+onRecaptchaLoad();

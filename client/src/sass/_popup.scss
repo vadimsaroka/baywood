@@ -18,42 +18,31 @@
 .popup {
   &__content {
     background-color: $color-grey-light-1;
-    width: 70%;
-    height: auto;
+    max-width: 50%;
+    max-height: 94vh;
     position: relative;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     animation: zoom 0.5s;
     overflow: auto;
     z-index: 6;
-    grid-template-columns: 40% 1fr;
-    grid-template-rows: 6rem 1fr;
+    border-radius: 1rem;
+    justify-content: center;
 
     //1200px
     @media only screen and (max-width: $bp-largest) {
-      width: 80%;
+      max-width: 60%;
     }
 
     //1000px
     @media only screen and (max-width: $bp-large) {
-      grid-template-columns: 1fr;
-      grid-template-rows: 6rem 1fr 1fr;
-      height: 90vh;
+      max-width: 70%;
     }
 
     //900px
     @media only screen and (max-width: $bp-medium) {
-      border-radius: 1rem;
-    }
-
-    //700px
-    @media only screen and (max-width: $bp-largest) {
-      width: 90%;
-    }
-
-    //450px
-    @media only screen and (max-width: $bp-smallest) {
-      width: 95%;
-      height: inherit;
+      max-width: 95%;
     }
   }
 
@@ -61,56 +50,34 @@
     position: sticky;
     top: 0;
     right: 0;
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
+    flex: 100%;
+    height: 6rem;
     background-color: $color-grey-light-1;
   }
 
   &__img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
     display: block;
     border-radius: 0.4rem;
     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
   }
 
   &__text {
-    grid-column: 2 / 3;
     font-size: 1.7rem;
     line-height: 1.6;
     color: inherit;
-    margin-bottom: 6rem;
-    grid-row: 2 / 3;
-    margin-right: 6rem;
+    margin: 4rem;
 
-    //1000px
-    @media only screen and (max-width: $bp-large) {
-      grid-column: 1 / 2;
-      grid-row: 3 / 4;
-      margin-right: 0;
-      padding: 0 4vw;
+    //700px
+    @media only screen and (max-width: $bp-small) {
+      margin: 2rem;
     }
   }
 
   &__item {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    margin-bottom: 6rem;
-    margin-left: 6rem;
-    margin-right: 2rem;
-
-    //1000px
-    @media only screen and (max-width: $bp-large) {
-      grid-template-columns: 1fr;
-      grid-template-rows: 6rem 1fr 1fr;
-      width: 80%;
-      padding-bottom: 3rem;
-      margin-left: 0;
-      margin-bottom: 0;
-      margin-right: 0;
-      justify-self: center;
-    }
+    margin: 0 2rem;
   }
 
   &__close {
@@ -132,7 +99,7 @@
   &__contact {
     background-image: linear-gradient(
         100deg,
-        rgba(255, 255, 255, 0.8) 47%,
+        rgba(255, 255, 255, 0.8) 100%,
         transparent 70%
       ),
       url(../img/background.jpg);
@@ -140,34 +107,25 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    width: 80%;
-    height: auto;
+    max-width: 96%;
+    max-height: 94vh;
 
     position: relative;
     animation: zoom 0.5s;
     overflow: auto;
+    border-radius: 1rem;
 
-    //1000px
-    @media only screen and (max-width: $bp-large) {
-      width: 90%;
-    }
-
-    //900px
-    @media only screen and (max-width: $bp-medium) {
-      border-radius: 1rem;
-      height: inherit;
-    }
+    display: flex;
+    flex-flow: row wrap;
 
     //700px
     @media only screen and (max-width: $bp-small) {
       background-image: linear-gradient(
           100deg,
-          rgba(255, 255, 255, 0.8) 50%,
+          rgba(255, 255, 255, 0.8) 100%,
           transparent 100%
         ),
         url(../img/small_background.jpg);
-      width: 96%;
-      // height: 96vh;
     }
 
     //450px
@@ -178,7 +136,6 @@
           transparent 100%
         ),
         url(../img/smallest_background.jpg);
-      height: inherit;
     }
   }
 
@@ -189,76 +146,47 @@
     top: 0;
     left: 0;
     z-index: 7;
-
-    //900px
-    @media only screen and (max-width: $bp-medium) {
-      border-radius: 1rem;
-    }
+    border-radius: 1rem;
+    flex: 100%;
   }
 
   &__wrapper {
     padding: 6rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "heading heading"
-      "form map";
 
     //900px
     @media only screen and (max-width: $bp-medium) {
       padding: 5rem 4rem;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "heading"
-        "map"
-        "form";
     }
 
     //450px
     @media only screen and (max-width: $bp-smallest) {
       padding: 4rem 2rem;
     }
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   &__heading {
-    grid-area: heading;
+    order: 1;
+    flex: 100%;
   }
 
   &__map {
-    grid-area: map;
-    padding-top: 5.5rem;
-
-    //900px
-    @media only screen and (max-width: $bp-medium) {
-      height: 70rem;
-      padding-top: 3rem;
-    }
-
-    //450px
-    @media only screen and (max-width: $bp-smallest) {
-      height: 50rem;
-      padding-top: 2rem;
-    }
+    margin-top: 5rem;
+    height: 50vh;
+    order: 3;
+    flex: 100%;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
-    width: 90%;
     font-size: 1.6rem;
-
-    grid-area: form;
-
-    //900px
-    @media only screen and (max-width: $bp-medium) {
-      margin-top: -11rem;
-      width: 100%;
-    }
-
-    //450px
-    @media only screen and (max-width: $bp-smallest) {
-      margin-top: -8rem;
-    }
+    flex: 100%;
+    order: 2;
+    position: relative;
   }
 
   &__input {
@@ -300,31 +228,26 @@
   .btn {
     margin-top: 1rem;
     align-self: flex-start;
+    cursor: not-allowed;
   }
 }
 
 // Popup slider
 .popup__imageSlider {
   animation: fade 2s;
-  width: 70%;
-  height: auto;
+  max-width: 70%;
+  max-height: 95vh;
   overflow: hidden;
-  margin: 2rem;
   position: relative;
 
   //1200px
   @media only screen and (max-width: $bp-largest) {
-    width: 80%;
+    max-width: 80%;
   }
 
   //900px
   @media only screen and (max-width: $bp-medium) {
-    width: 90%;
-  }
-
-  //700px
-  @media only screen and (max-width: $bp-small) {
-    width: 95%;
+    max-width: 95%;
   }
 }
 

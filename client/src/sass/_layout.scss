@@ -1,68 +1,65 @@
 .container {
   overflow: hidden;
   min-width: 40rem;
-  max-width: 256rem;
+  max-width: 200rem;
   position: relative;
   background-color: #fff;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns:
-    8rem minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
-    minmax(6rem, 1fr);
+  display: flex;
+  flex-flow: row wrap;
+}
 
-  grid-template-areas:
-    "sidebar header header header header header header header team team team"
-    " sidebar . features features features features features features features features ."
-    " sidebar story__pictures story__pictures story__pictures story__pictures story__pictures story__content story__content story__content story__content story__content"
-    " sidebar . properties properties properties properties properties properties properties properties ."
-    " sidebar gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
-    " sidebar footer footer footer footer footer footer footer footer footer footer";
-
-
-  //2560px
-  @media only screen and (min-width: $bp-super-large) {
+@supports (display: grid) {
+  .container {
+    overflow: hidden;
+    min-width: 40rem;
+    max-width: 256rem;
+    position: relative;
+    background-color: #fff;
+    margin: 0 auto;
+    display: grid;
     grid-template-columns:
-    minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
-    minmax(6rem, 1fr);
-
-  grid-template-areas:
-    " header header header header header header header team team team"
-    " . features features features features features features features features ."
-    " story__pictures story__pictures story__pictures story__pictures story__pictures story__content story__content story__content story__content story__content"
-    " . properties properties properties properties properties properties properties properties ."
-    " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
-    " footer footer footer footer footer footer footer footer footer footer";
-  }
-
-  //1000px
-  @media only screen and (max-width: $bp-large) {
-    grid-template-columns:
-      minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
+      8rem minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
       minmax(6rem, 1fr);
-    grid-template-areas:
-      "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
-      " header header header header header header header team team team"
-      " features features features features features features features features features features"
-      " story__pictures story__pictures story__pictures story__pictures story__pictures story__content story__content story__content story__content story__content"
-      " properties properties properties properties properties properties properties properties properties properties"
-      " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
-      " footer footer footer footer footer footer footer footer footer footer";
-  }
 
-  //900px
-  @media only screen and (max-width: $bp-medium) {
-    grid-template-columns:
-      minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
-      minmax(6rem, 1fr);
     grid-template-areas:
-      "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
-      " header header header header header header header header header header"
-      " team team team team team team team team team team "
-      " features features features features features features features features features features"
-      " story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures"
-      " story__content story__content story__content story__content story__content story__content story__content story__content story__content story__content"
-      " properties properties properties properties properties properties properties properties properties properties"
-      " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
-      " footer footer footer footer footer footer footer footer footer footer";
+      "sidebar header header header header header header header team team team"
+      " sidebar . features features features features features features features features ."
+      " sidebar story__pictures story__pictures story__pictures story__pictures story__pictures story__content story__content story__content story__content story__content"
+      " sidebar . properties properties properties properties properties properties properties properties ."
+      " sidebar gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+      " sidebar footer footer footer footer footer footer footer footer footer footer";
+
+    //1000px
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns:
+        minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
+        minmax(6rem, 1fr);
+      grid-template-areas:
+        "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+        " header header header header header header header team team team"
+        " features features features features features features features features features features"
+        " story__pictures story__pictures story__pictures story__pictures story__pictures story__content story__content story__content story__content story__content"
+        " properties properties properties properties properties properties properties properties properties properties"
+        " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+        " footer footer footer footer footer footer footer footer footer footer";
+    }
+
+    //900px
+    @media only screen and (max-width: $bp-medium) {
+      grid-template-columns:
+        minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
+        minmax(6rem, 1fr);
+      grid-template-areas:
+        "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+        " header header header header header header header header header header"
+        " team team team team team team team team team team "
+        " features features features features features features features features features features"
+        " story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures story__pictures"
+        " story__content story__content story__content story__content story__content story__content story__content story__content story__content story__content"
+        " properties properties properties properties properties properties properties properties properties properties"
+        " gallery gallery gallery gallery gallery gallery gallery gallery gallery gallery"
+        " footer footer footer footer footer footer footer footer footer footer";
+    }
   }
 }

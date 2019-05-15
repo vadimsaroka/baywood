@@ -14,7 +14,12 @@ sidebarItems.forEach(e => {
   e.addEventListener("click", () => {
     clearSidebarItems();
     const active = document.getElementById(e.id);
-    active.classList.add("sidebar__item--active");
+
+    if (e.id === "sidebar__home") {
+      active.classList.add("sidebar__item--active");
+    } else {
+      checkbox.checked = false;
+    }
   });
 });
 

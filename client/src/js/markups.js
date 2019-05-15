@@ -122,7 +122,7 @@ import gal13Small from "../img/gal-13-small.jpg";
 import gal14Small from "../img/gal-14-small.jpg";
 
 export let galArr = () => {
-  if (screen.width < 450) {
+  if (screen.width < 300) {
     galArr = {
       "gal-1": gal1Small,
       "gal-2": gal2Small,
@@ -139,7 +139,7 @@ export let galArr = () => {
       "gal-13": gal13Small,
       "gal-14": gal14Small
     };
-  } else if (screen.width < 1200) {
+  } else if (screen.width < 1000) {
     galArr = {
       "gal-1": gal1Medium,
       "gal-2": gal2Medium,
@@ -199,17 +199,110 @@ export const contactForm = `
 
         <label for="comment">Comment</label>
         <textarea class="popup__input" id="comment" name="message" placeholder="Type here..."></textarea>
-        
+
+        <div id="html_element" style="margin: 2rem 0; position: inherit;"></div>
+
         <p><span class="popup__span">*</span> Indicates required field</p>
-        <input type="submit" class="btn" value="Contact Us">
+        <input type="submit" id="submitBtn" class="btn" value="Contact Us" disabled>
       </form>
+      
       <div class="popup__map">
-      <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" 
-        src="https://maps.google.com/maps?q=330%20Primrose%20Road%2C%20Suite%20606%20-%20Burlingame%2C%20CA%2094010&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com"></a></div><style>.mapouter{position:relative;text-align:right;height:82%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div>
-      </div>
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" 
+          src="https://maps.google.com/maps?q=330%20Primrose%20Road%2C%20Suite%20606%20-%20Burlingame%2C%20CA%2094010&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.emojilib.com"></a></div><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div>
+        </div>
     </div>
 </div>
 `;
 
-
 // lazy loading
+import gal1Loading from "../img/gal-1.jpg";
+import gal2Loading from "../img/gal-2.jpg";
+import gal3Loading from "../img/gal-3.jpg";
+import gal4Loading from "../img/gal-4.jpg";
+import gal5Loading from "../img/gal-5.jpg";
+import gal6Loading from "../img/gal-6.jpg";
+import gal7Loading from "../img/gal-7.jpg";
+import gal8Loading from "../img/gal-8.jpg";
+import gal9Loading from "../img/gal-9.jpg";
+import gal10Loading from "../img/gal-10.jpg";
+import gal11Loading from "../img/gal-11.jpg";
+import gal12Loading from "../img/gal-12.jpg";
+import gal13Loading from "../img/gal-13.jpg";
+import gal14Loading from "../img/gal-14.jpg";
+
+import gal1Mobile from "../img/gal-1-mobile.jpg";
+import gal2Mobile from "../img/gal-2-mobile.jpg";
+import gal3Mobile from "../img/gal-3-mobile.jpg";
+import gal4Mobile from "../img/gal-4-mobile.jpg";
+import gal5Mobile from "../img/gal-5-mobile.jpg";
+import gal6Mobile from "../img/gal-6-mobile.jpg";
+import gal7Mobile from "../img/gal-7-mobile.jpg";
+import gal8Mobile from "../img/gal-8-mobile.jpg";
+import gal9Mobile from "../img/gal-9-mobile.jpg";
+import gal10Mobile from "../img/gal-10-mobile.jpg";
+import gal11Mobile from "../img/gal-11-mobile.jpg";
+import gal12Mobile from "../img/gal-12-mobile.jpg";
+import gal13Mobile from "../img/gal-13-mobile.jpg";
+import gal14Mobile from "../img/gal-14-mobile.jpg";
+
+import prop1 from "../img/prop-1.jpg";
+import prop2 from "../img/prop-2.png";
+import prop3 from "../img/prop-3.png";
+import prop4 from "../img/prop-4.png";
+import prop5 from "../img/prop-5.png";
+import prop6 from "../img/prop-6.jpg";
+import prop7 from "../img/prop-7.jpg";
+import prop8 from "../img/prop-8.png";
+
+export let lazyLoadImges = () => {
+  if (screen.width < 1000) {
+    lazyLoadImges = {
+      "gal-1": gal1Mobile,
+      "gal-2": gal2Mobile,
+      "gal-3": gal3Mobile,
+      "gal-4": gal4Mobile,
+      "gal-5": gal5Mobile,
+      "gal-6": gal6Mobile,
+      "gal-7": gal7Mobile,
+      "gal-8": gal8Mobile,
+      "gal-9": gal9Mobile,
+      "gal-10": gal10Mobile,
+      "gal-11": gal11Mobile,
+      "gal-12": gal12Mobile,
+      "gal-13": gal13Mobile,
+      "gal-14": gal14Mobile
+    };
+  } else {
+    lazyLoadImges = {
+      "gal-1": gal1Loading,
+      "gal-2": gal2Loading,
+      "gal-3": gal3Loading,
+      "gal-4": gal4Loading,
+      "gal-5": gal5Loading,
+      "gal-6": gal6Loading,
+      "gal-7": gal7Loading,
+      "gal-8": gal8Loading,
+      "gal-9": gal9Loading,
+      "gal-10": gal10Loading,
+      "gal-11": gal11Loading,
+      "gal-12": gal12Loading,
+      "gal-13": gal13Loading,
+      "gal-14": gal14Loading
+    };
+  }
+};
+
+lazyLoadImges();
+window.onorientationchange = lazyLoadImges;
+window.addEventListener("resize", lazyLoadImges);
+
+export let lazyPropImages = {
+  "prop-1": prop1,
+  "prop-2": prop2,
+  "prop-3": prop3,
+  "prop-4": prop4,
+  "prop-5": prop5,
+  "prop-6": prop6,
+  "prop-7": prop7,
+  "prop-8": prop8
+};

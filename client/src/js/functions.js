@@ -1,4 +1,5 @@
 import { galArr } from "./markups";
+import { smoothScroll } from "./smoothScroll";
 const popup = document.querySelector(".popup");
 
 // clear popup
@@ -83,4 +84,46 @@ export const renderImage = img => {
     }
     renderImage(`gal-${currentImg}`);
   });
+};
+
+//Btn scroll top
+const stickyBtn = document.querySelector(".sticky__btn");
+const scrollTo = document.querySelector("#home");
+const footer = document.querySelector(".footer");
+
+const scrollTopBtn = () => {
+  const scrollBtn = window.pageYOffset;
+
+  if (scrollBtn > 500 && scrollBtn + window.innerHeight < footer.offsetTop) {
+    stickyBtn.style.display = "block";
+  } else {
+    stickyBtn.style.display = "none";
+  }
+};
+
+stickyBtn.addEventListener("click", () => {
+  smoothScroll(scrollTo, 1500);
+});
+
+document.addEventListener("scroll", scrollTopBtn);
+window.addEventListener("resize", scrollTopBtn);
+window.addEventListener("orientationChange", scrollTopBtn);
+
+
+//reCaptcha
+function submitBtn() {
+  const contactBtn = document.querySelector("#submitBtn");
+  contactBtn.removeAttribute('disabled');
+  contactBtn.style.cursor = 'pointer';
+}
+export const onRecaptchaLoad = function() {
+  setInterval(() => {
+    const element = document.querySelector("#html_element");
+    if (element !== null && !element.children.length) {
+      grecaptcha.render('html_element', {
+      'sitekey' : '6LduXKMUAAAAAD9v_R3l18UEjy7xVy1uLmKwBWDp',
+      'callback': submitBtn
+    });
+    }
+  }, 1000);
 };
